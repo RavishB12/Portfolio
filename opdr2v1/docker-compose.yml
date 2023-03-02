@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+    opdracht2python:
+        container_name: Python-IMDB
+        image: dockerfileopdr2v2 #deze image moet je telkens bijwerken tot de bijbehorende naam die je als laatst hebt aangemaakt 
+        depends_on:
+            - mongo
+    mongo:
+        ports:
+            - '27017:27017'
+        container_name: dkrcomp-mongo2
+        restart: always
+        logging:
+            options:
+                max-size: 1g
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=mongoadmin
+            - MONGO_INITDB_ROOT_PASSWORD=bdung
+        image: mongo
+
+
+
